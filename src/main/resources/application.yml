@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgres-db:5433/REGISTRATION_APP
+    url: jdbc:postgresql://localhost:5433/REGISTRATION
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -14,3 +14,9 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         default-schema: public
     show-sql: true
+
+  liquibase:
+    change-log: db/changelog/db.changelog-master.xml
+    enabled: false
+    clear-checksums: true
+    default-schema: public
