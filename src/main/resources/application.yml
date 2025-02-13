@@ -15,8 +15,8 @@ spring:
         default-schema: public
     show-sql: true
 
-  liquibase:
-    change-log: db/changelog/db.changelog-master.xml
-    enabled: false
-    clear-checksums: true
-    default-schema: public
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    clean-disabled: false

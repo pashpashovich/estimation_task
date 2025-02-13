@@ -1,25 +1,23 @@
 package by.innowise.registrationapp.dto;
 
-import by.innowise.registrationapp.validators.annotation.ComplexPassword;
+import by.innowise.registrationapp.validators.annotation.OptionalPassword;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
-@Builder
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-public class UserCreateDto {
+@ToString
+public class UserUpdateDto {
     @NotNull
     @NotEmpty
     @Size(min = 1, max = 25)
@@ -32,7 +30,7 @@ public class UserCreateDto {
     @NotEmpty
     @Email
     private String email;
-    @ComplexPassword
+    @OptionalPassword
     private String password;
     @Past
     @NotNull

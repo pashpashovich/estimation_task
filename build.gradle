@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'by.innowise'
-version = '0.0.1-SNAPSHOT'
+version = '8.5'
 
 java {
     toolchain {
@@ -36,8 +36,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'org.liquibase:liquibase-core'
+    implementation 'org.flywaydb:flyway-core'
     compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.flywaydb:flyway-database-postgresql:11.3.1'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

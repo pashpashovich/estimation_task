@@ -1,19 +1,19 @@
 version: '3.9'
 
 services:
-  #  app:
-  #    build:
-  #      context: .
-  #      dockerfile: Dockerfile
-  #    container_name: moviereview_app
-  #    ports:
-  #      - "8080:8080"
-  #    depends_on:
-  #      - postgres-db
-  #    environment:
-  #      DB_URL: jdbc:postgresql://postgres-db:5432/MOVIE_REVIEW
-  #      DB_USER: postgres
-  #      DB_PASSWORD: postgres
+#  app:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    container_name: moviereview_app
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - postgres-db
+#    environment:
+#      DB_URL: jdbc:postgresql://postgres-db:5432/MOVIE_REVIEW
+#      DB_USER: postgres
+#      DB_PASSWORD: postgres
 
   postgres-db:
     image: postgres:latest
@@ -26,7 +26,6 @@ services:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-#      - ./db-init:/docker-entrypoint-initdb.d
 
 volumes:
   postgres_data:

@@ -2,6 +2,7 @@ package by.innowise.registrationapp.mapper;
 
 import by.innowise.registrationapp.dto.UserCreateDto;
 import by.innowise.registrationapp.dto.UserDto;
+import by.innowise.registrationapp.dto.UserUpdateDto;
 import by.innowise.registrationapp.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -12,6 +13,7 @@ public interface UserMapper {
     @Mapping(target = "id", ignore = true)
     User toEntityCreate(UserCreateDto userDto);
     UserDto toDto(User user);
+    UserUpdateDto toUpdateDto(User user);
 }
 
 

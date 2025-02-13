@@ -33,8 +33,12 @@ public class UserDao implements AbstractHibernateDao<User, Long> {
     }
 
     @Override
-    public void update(User object) {
-
+    public void update(User user) {
+        try (Session session = HibernateUtil.getSession()) {
+            session.beginTransaction();
+            session.merge(user);
+            session.getTransaction().commit();
+        }
     }
 
     @Override
