@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Мой профиль</title>
+</head>
+<body>
+<h2>Добро пожаловать в ваш профиль!</h2>
+
+<div th:if="${user}">
+    <p><strong>Имя:</strong> <span th:text="${user.firstName}"></span></p>
+    <p><strong>Фамилия:</strong> <span th:text="${user.lastName}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+    <p><strong>Дата рождения:</strong> <span th:text="${user.birthday}"></span></p>
+    <p><strong>Роль:</strong> <span th:text="${user.role}"></span></p>
+    <a th:href="@{'/user/profile/'+ ${user.id} + '/edit'}">Редактировать профиль</a>
+</div>
+
+<p><a th:href="@{/logout}">Выйти</a></p>
+</body>
+</html>

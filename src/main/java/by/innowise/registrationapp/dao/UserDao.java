@@ -5,17 +5,43 @@ import by.innowise.registrationapp.util.HibernateUtil;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class UserDao {
+public class UserDao implements AbstractHibernateDao<User, Long> {
 
-    public User save(User user) {
+    @Override
+    public Optional<User> findById(Long id) {
         try (Session session = HibernateUtil.getSession()) {
-            session.persist(user);
+            User user = session.get(User.class, id);
+            return Optional.ofNullable(user);
         }
-        return user;
     }
+
+    @Override
+    public List<User> findAll() {
+        return null;
+    }
+
+    public void save(User user) {
+        try (Session session = HibernateUtil.getSession()) {
+            session.beginTransaction();
+            session.persist(user);
+            session.getTransaction().commit();
+        }
+    }
+
+    @Override
+    public void update(User object) {
+
+    }
+
+    @Override
+    public void delete(User object) {
+
+    }
+
     public Optional<User> findByEmail(String email) {
         try (Session session = HibernateUtil.getSession()) {
             User user = session.createQuery("FROM User WHERE email = :email", User.class)
