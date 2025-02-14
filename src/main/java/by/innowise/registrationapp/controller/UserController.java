@@ -25,7 +25,7 @@ public class UserController {
     public String getUserProfile(@PathVariable Long id, Model model) {
         UserDto dto = userService.findById(id);
         model.addAttribute("user", dto);
-        return "user-profile";
+        return "user/user-profile";
     }
 
     @GetMapping("/{id}/edit")
@@ -33,7 +33,7 @@ public class UserController {
         UserUpdateDto userUpdateDto = userService.createUserUpdateDto(id);
         model.addAttribute("userUpdateDto", userUpdateDto);
         model.addAttribute("userId", id);
-        return "user-edit";
+        return "user/user-edit";
     }
 
     @PostMapping("/{id}/edit")
@@ -45,7 +45,7 @@ public class UserController {
     ) {
         if (result.hasErrors()) {
             model.addAttribute("userId", id);
-            return "user-edit";
+            return "user/user-edit";
         }
         userService.updateUser(id, userUpdateDto);
         return "redirect:/user/profile/" + id;

@@ -13,7 +13,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Constraint(validatedBy = PasswordComplexValidator.class)
 public @interface ComplexPassword {
-    String message() default "Пароль не соответствует требованиям сложности. Должно быть минимум 8 символов, а также минимум одна строчная и заглавная буквы";
+    String message() default "Пароль не соответствует требованиям сложности. Должно быть минимум 8 символов, а также минимум одна строчная и заглавная латинские буквы";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

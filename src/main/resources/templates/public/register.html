@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" th:href="@{/}"><strong>MyApp</strong></a>
+        <a class="navbar-brand" th:href="@{/templates/public}"><strong>MyApp</strong></a>
     </div>
 </nav>
 <div class="container my-5">
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email:</label>
+                            <label for="email" class="form-label">Электронная почта:</label>
                             <input type="email" id="email" class="form-control" th:field="*{email}" required>
                             <small class="text-danger" th:if="${#fields.hasErrors('email')}"
                                    th:errors="*{email}"></small>

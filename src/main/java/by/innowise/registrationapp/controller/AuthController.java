@@ -13,7 +13,7 @@ public class AuthController {
         if (error != null) {
             model.addAttribute("errorMessage", error);
         }
-        return "login";
+        return "public/login";
     }
 }
 

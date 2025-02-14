@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" th:href="@{/}"><strong>MyApp</strong></a>
+        <a class="navbar-brand" th:href="@{/templates/public}"><strong>MyApp</strong></a>
         <div class="ml-auto">
             <a th:href="@{/logout}" class="btn btn-outline-light">Выйти</a>
         </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="birthday" class="form-label">Дата рождения:</label>
-                            <input type="date" id="birthday" th:field="*{birthday}" class="form-control">
+                            <input type="date" id="birthday" th:value="${#temporals.format(userUpdateDto.birthday, 'yyyy-MM-dd')}" name="birthday" class="form-control">
                             <div class="text-danger small" th:if="${#fields.hasErrors('birthday')}"
                                  th:errors="*{birthday}"></div>
                         </div>
