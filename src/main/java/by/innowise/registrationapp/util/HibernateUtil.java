@@ -18,7 +18,7 @@ public class HibernateUtil {
             sessionFactory = new Configuration().configure("hibernate.cfg.xml")
                     .addAnnotatedClass(User.class)
                     .buildSessionFactory();
-        } catch (Throwable ex) {
+        } catch (Exception ex) {
             throw new ExceptionInInitializerError(ex);
         }
     }

@@ -11,6 +11,6 @@ public class ErrorController {
     @GetMapping("/error/access-denied")
     public String accessDeniedPage(@RequestParam(required = false) String message, Model model) {
         model.addAttribute("errorMessage", message != null ? message : "У вас нет доступа к этой странице.");
-        return "error/access-denied";
+        return "error/403";
     }
 }

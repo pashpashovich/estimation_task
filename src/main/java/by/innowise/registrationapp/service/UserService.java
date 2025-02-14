@@ -51,7 +51,7 @@ public class UserService {
     @Transactional
     public void updateUser(Long id, UserUpdateDto dto) {
         User user = userDao.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new NotFoundException(String.format("Пользователь с ID %s не найден", id)));
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setEmail(dto.getEmail());
